@@ -1,1 +1,1 @@
-I know, this repository can't save the world
+This repository is for study programming. 
