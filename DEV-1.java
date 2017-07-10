@@ -4,7 +4,7 @@ public class NumbersOnScreen {
       if (i % 3 == 0) {
         System.out.println("3*" + i/3);
         i++;
-          }
+      }
       System.out.println(i);
     }     
   }   
