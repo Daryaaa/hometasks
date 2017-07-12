@@ -3,9 +3,9 @@ public class NumbersOnScreen {
     for(int i = 0; i < 101; i++) {
       if (i % 3 == 0) {
         System.out.println("3*" + i/3);
-        i++;
+      } else {
+        System.out.println(i);
       }
-      System.out.println(i);
     }     
   }   
 }
