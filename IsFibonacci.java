@@ -1,9 +1,15 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.io.Reader;
+import java.io.IOException;
+
 public class IsFibonacci {
   public static String IsNumberFibonacci(int n) {
     String result = null;
     int firstFibonacci = 0;
     int secondFibonacci = 1;
+
     if ( n < firstFibonacci ) {
       result = "Illegal input";
     } else  if (n == firstFibonacci || n == secondFibonacci) {
@@ -11,7 +17,7 @@ public class IsFibonacci {
     } else if (n > secondFibonacci) {
       int thirdFibonacci = 1;
       for (int sum = 0; sum < n; sum++) {
-        sum = secondFibonacci+thirdFibonacci;
+        sum = secondFibonacci + thirdFibonacci;
         secondFibonacci = thirdFibonacci;
         thirdFibonacci = sum;
         if (sum == n) {
@@ -20,9 +26,11 @@ public class IsFibonacci {
           result = "Isn't Fibonacci";
         }
       }
-    } System.out.println(result);
-      return result;
+    }
+    System.out.println(result);
+    return result;
   }
+
   public static void main(String[] args) throws IOException {
     InputStream inputStream = System.in;
     Reader inputStreamReader = new InputStreamReader(inputStream);
