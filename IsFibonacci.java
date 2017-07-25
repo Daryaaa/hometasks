@@ -4,11 +4,11 @@ public class IsFibonacci {
     String result = null;
     int firstFibonacci = 0;
     int secondFibonacci = 1;
-    if ( n < firstFibonacci ){
+    if ( n < firstFibonacci ) {
       result = "Illegal input";
     } else  if (n == firstFibonacci || n == secondFibonacci) {
       result = "Is Fibonacci";
-    } else if (n > secondFibonacci){
+    } else if (n > secondFibonacci) {
       int thirdFibonacci = 1;
       for (int sum = 0; sum < n; sum++) {
         sum = secondFibonacci+thirdFibonacci;
@@ -16,7 +16,7 @@ public class IsFibonacci {
         thirdFibonacci = sum;
         if (sum == n) {
           result = "Is Fibonacci";
-        } else if (sum > n){
+        } else if (sum > n) {
           result = "Isn't Fibonacci";
         }
       }
