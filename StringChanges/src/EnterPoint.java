@@ -1,20 +1,14 @@
-/**
- * 27.09.2017
- * task DEV-9
- * Two strings are given. Replace a random group symbols from one string
- * by another random group symbols from another string.
- * Output is two original strings and one which was changed.
- */
-
 public class EnterPoint {
   public static void main(String[] args) {
     StringChanges example = new StringChanges();
-    Strings input = new Strings("abcdefgh1ijklmnop2qrstuvwxyz", "abcdefgh3ijklmnopq5rstuvwxyz");
-
-    System.out.println(input.first);
-    System.out.println(input.second);
-
-    example.randomNumbers(input);
-    System.out.println(input.first);
+    try {
+      example.randomNumbers(args);
+    } catch (IllegalArgumentException e){
+      System.out.println("Your input isn't correct, you must put only 2 arguments.");
+      System.exit(0);
+    }
+    System.out.println(args[0]);
+    System.out.println(args[1]);
+    System.out.println(example.randomNumbers(args));
   }
 }
