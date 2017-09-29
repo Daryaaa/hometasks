@@ -5,7 +5,6 @@ public class EnterPoint {
       example.randomNumbers(args);
     } catch (IllegalArgumentException e){
       System.out.println("Your input isn't correct, you must put only 2 arguments.");
-      System.exit(0);
     }
     System.out.println(args[0]);
     System.out.println(args[1]);
