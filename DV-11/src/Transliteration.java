@@ -2,12 +2,12 @@ import java.util.HashMap;
 
 public class Transliteration {
 
+  HashMap<String, String> vocabulary = new HashMap<>();
   /**
    * Initialization vocabulary single symbols from latin to cyrilic
-   * @param vocabulary hashmap where vocalulary is.
    * @return vocabulary with symbols in haspmap form.
    */
-  private HashMap<String, String> initializationEN_RU(HashMap<String, String> vocabulary) {
+  private HashMap<String, String> initializationEN_RU() {
     vocabulary.put("a", "а");
     vocabulary.put("b", "б");
     vocabulary.put("v", "в");
@@ -53,17 +53,15 @@ public class Transliteration {
 
   /**
    * Initialization vocabulary for several symbols, the order of that matters, from latin to cyrilic
-   * @param vocabulary hashmap where vocalulary is.
    * @return vocabulary with symbols in haspmap form.
    */
-  private HashMap<String, String> initializationEN_RU_complexSymbols(HashMap<String, String> vocabulary) {
+  private HashMap<String, String> initializationEN_RU_complexSymbols() {
     vocabulary.put("OJSC", "ОАО");
     vocabulary.put("CJSC", "ЗАО");
     vocabulary.put("LLC", "ООО");
     vocabulary.put("Ltd.", "ООО");
     vocabulary.put("SRL", "ООО");
-    vocabulary.put("fond", "фонд");
-    vocabulary.put("Fond", "Фонд");
+    vocabulary.put("Fund", "фонд");
     vocabulary.put("SEE", "ГОУ");
     vocabulary.put("MEE", "МОУ");
     vocabulary.put("NEE", "НОУ");
@@ -110,10 +108,9 @@ public class Transliteration {
 
   /**
    * Initialization vocabulary single symbols from cyrylic ti latin
-   * @param vocabulary hashmap where vocalulary is.
    * @return vocabulary with symbols in haspmap form.
    */
-  private HashMap<String, String> initializationRU_EN(HashMap<String, String> vocabulary) {
+  private HashMap<String, String> initializationRU_EN() {
     vocabulary.put("А", "A");
     vocabulary.put("Б", "B");
     vocabulary.put("В", "C");
@@ -181,15 +178,13 @@ public class Transliteration {
 
   /**
    * Initialization vocabulary  for several symbols, the order of that matters, from cyrilic to latin
-   * @param vocabulary hashmap where vocalulary is.
    * @return vocabulary with symbols in haspmap form.
    */
-  private HashMap<String, String> initializationRU_EN_complexSymbols(HashMap<String, String> vocabulary) {
+  private HashMap<String, String> initializationRU_EN_complexSymbols() {
     vocabulary.put("ОАО", "OJSC");
     vocabulary.put("ЗАО", "CJSC");
     vocabulary.put("ООО", "LLC");
-    vocabulary.put("фонд", "fond");
-    vocabulary.put("Фонд", "Fond");
+    vocabulary.put("фонд", "Fund");
     vocabulary.put("ГОУ", "SEE");
     vocabulary.put("МОУ", "MEE");
     vocabulary.put("НОУ", "NEE");
@@ -237,14 +232,11 @@ public class Transliteration {
   /**
    * This method find out lenguage of input text.
    * @param text - input text
-   * @return true if it translit text, false - russian.
+   * @return true - in latin, false - in cyrilic.
    */
-  private boolean knowInputLanguage(String text) {
+  private boolean isTextLatin(String text) {
     String textLowCase = text.toLowerCase();
-    if(textLowCase.charAt(0) >= 97 && textLowCase.charAt(0) <= 122) {
-      return true;
-    }
-    else return false;
+     return (textLowCase.charAt(0) >= 97 && textLowCase.charAt(0) <= 122);
   }
 
   /**
@@ -253,30 +245,25 @@ public class Transliteration {
    * @return conver string.
    */
   public String convert(String text) {
-    if(knowInputLanguage(text)) {
-      HashMap<String, String> vocabularyComplex = new HashMap<>();
-      vocabularyComplex = initializationEN_RU_complexSymbols(vocabularyComplex);
-      HashMap<String, String> vocabulary = new HashMap<>();
-      vocabulary = initializationEN_RU(vocabulary);
-      for(String value : vocabularyComplex.keySet()){
+    if(isTextLatin(text)) {
+      HashMap<String, String> vocabularyComplex = initializationEN_RU_complexSymbols();
+      HashMap<String, String> vocabulary = initializationEN_RU();
+      for(String value : vocabularyComplex.keySet()) {
         text = text.replace(value, vocabularyComplex.get(value));
       }
       for(String value : vocabulary.keySet()) {
           text = text.replace(value, vocabulary.get(value));
       }
-
     } else {
-       HashMap<String, String> vocabularyComplex = new HashMap<>();
-       vocabularyComplex = initializationRU_EN_complexSymbols(vocabularyComplex);
-       HashMap<String, String> vocabulary = new HashMap<>();
-       vocabulary = initializationRU_EN(vocabulary);
-      for(String value : vocabularyComplex.keySet()){
+      HashMap<String, String> vocabularyComplex = initializationRU_EN_complexSymbols();
+      HashMap<String, String> vocabulary = initializationRU_EN();
+      for(String value : vocabularyComplex.keySet()) {
         text = text.replace(value, vocabularyComplex.get(value));
       }
       for(String value : vocabulary.keySet()) {
         text = text.replace(value, vocabulary.get(value));
       }
     }
-      return text;
+    return text;
   }
 }
