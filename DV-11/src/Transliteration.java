@@ -235,8 +235,11 @@ public class Transliteration {
    * @return true - in latin, false - in cyrilic.
    */
   private boolean isTextLatin(String text) {
+    if(text.length() < 1){
+      throw new IllegalArgumentException();
+    }
     String textLowCase = text.toLowerCase();
-     return (textLowCase.charAt(0) >= 97 && textLowCase.charAt(0) <= 122);
+    return (textLowCase.charAt(0) >= 97 && textLowCase.charAt(0) <= 122);
   }
 
   /**

@@ -1,6 +1,10 @@
 public class EnterPoint {
   public static void main(String[] args) {
     Transliteration example = new Transliteration();
-    System.out.println(example.convert("щит"));
+    try{
+      System.out.println(example.convert("щит"));
+    } catch (IllegalArgumentException e) {
+      System.out.println("String is empty");
+    }
   }
 }
