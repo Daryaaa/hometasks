@@ -158,15 +158,18 @@ Specialist junior = new SpecialistBuilder()
         customerProductivity -= sorted[0].getProductivity();
         customerMoney -= sorted[0].getSalary();
         countFirstType++;
-      } else if (customerProductivity < sorted[0].getProductivity() && customerProductivity >= sorted[1].getProductivity()) {
+      } else if (customerProductivity < sorted[0].getProductivity() &&
+                 customerProductivity >= sorted[1].getProductivity()) {
         customerProductivity -= sorted[1].getProductivity();
         customerMoney -= sorted[1].getSalary();
         countSecondType++;
-      } else if (customerProductivity < sorted[1].getProductivity() && customerProductivity >= sorted[2].getProductivity()) {
+      } else if (customerProductivity < sorted[1].getProductivity() &&
+                 customerProductivity >= sorted[2].getProductivity()) {
         customerProductivity -= sorted[2].getProductivity();
         customerMoney -= sorted[2].getSalary();
         countThirdType++;
-      } else if (customerProductivity < sorted[2].getProductivity() && customerProductivity >= sorted[3].getProductivity()) {
+      } else if (customerProductivity < sorted[2].getProductivity() &&
+                 customerProductivity >= sorted[3].getProductivity()) {
         customerProductivity -= sorted[3].getProductivity();
         customerMoney -= sorted[3].getSalary();
         countForthType++;
