@@ -10,14 +10,23 @@ public class Menu {
   /**
    * This method work with customer, ask input data we are nedeed.
    */
-  public void inputData() {
+  public void inputData() throws IllegalArgumentException {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Put money:");
     customerMoney = scanner.nextInt();
+    if (customerMoney < 0) {
+      throw new IllegalArgumentException();
+    }
     System.out.println("Put productivity:");
     customerProductivity = scanner.nextInt();
+    if (customerProductivity < 0) {
+      throw new IllegalArgumentException();
+    }
     System.out.println("Put criterion:");
     criterion = scanner.nextInt();
+    if (criterion < 0) {
+      throw  new IllegalArgumentException();
+    }
   }
 
   /**
