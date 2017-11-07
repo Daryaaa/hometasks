@@ -76,7 +76,7 @@ Specialist junior = new SpecialistBuilder()
    * This method sort spesialists by productivity per dollar.
    * @return array sorted specialists.
    */
-  private Specialist[] getSortedByProductivity() {
+  public Specialist[] getSortedByProductivity() {
     Specialist[] unsorted = {lead, senior, middle, junior};
     Arrays.sort(unsorted, new Comparator<Specialist>() {
       public int compare(Specialist a, Specialist b) {
@@ -123,22 +123,14 @@ Specialist junior = new SpecialistBuilder()
       System.out.println("Sorry, we cannot help you");
     } else {
       StringBuilder answer = new StringBuilder();
-      answer.append(sorted[0].getName());
-      answer.append(" ");
-      answer.append(countFirstType);
-      answer.append(",");
-      answer.append(sorted[1].getName());
-      answer.append(" ");
-      answer.append(countSecondType);
-      answer.append(",");
-      answer.append(sorted[2].getName());
-      answer.append(" ");
-      answer.append(countThirdType);
-      answer.append(",");
-      answer.append(sorted[3].getName());
-      answer.append(" ");
-      answer.append(countForthType);
-      answer.append(".");
+      answer.append(sorted[0].getName()).append(" ");
+      answer.append(countFirstType).append(",");
+      answer.append(sorted[1].getName()).append(" ");
+      answer.append(countSecondType).append(",");
+      answer.append(sorted[2].getName()).append(" ");
+      answer.append(countThirdType).append(",");
+      answer.append(sorted[3].getName()).append(" ");
+      answer.append(countForthType).append(".");
       System.out.println(answer);
     }
   }
@@ -178,28 +170,18 @@ Specialist junior = new SpecialistBuilder()
         break;
       }
     }
-    if (customerMoney < 0) {
-      System.out.println("Sorry, we cannot help you");
-    } else if (customerProductivity != 0) {
+    if (customerMoney < 0 && customerProductivity != 0) {
       System.out.println("Sorry, we cannot help you");
     } else {
       StringBuilder answer = new StringBuilder();
-      answer.append(sorted[0].getName());
-      answer.append(" ");
-      answer.append(countFirstType);
-      answer.append(",");
-      answer.append(sorted[1].getName());
-      answer.append(" ");
-      answer.append(countSecondType);
-      answer.append(",");
-      answer.append(sorted[2].getName());
-      answer.append(" ");
-      answer.append(countThirdType);
-      answer.append(",");
-      answer.append(sorted[3].getName());
-      answer.append(" ");
-      answer.append(countForthType);
-      answer.append(".");
+      answer.append(sorted[0].getName()).append(" ");
+      answer.append(countFirstType).append(",");
+      answer.append(sorted[1].getName()).append(" ");
+      answer.append(countSecondType).append(",");
+      answer.append(sorted[2].getName()).append(" ");
+      answer.append(countThirdType).append(",");
+      answer.append(sorted[3].getName()).append(" ");
+      answer.append(countForthType).append(".");
       System.out.println(answer);
     }
   }
@@ -227,22 +209,14 @@ Specialist junior = new SpecialistBuilder()
       System.out.println("Sorry, we cannot help you");
     }
     StringBuilder answer = new StringBuilder();
-    answer.append(sorted[0].getName());
-    answer.append(" ");
-    answer.append(countFirstType);
-    answer.append(",");
-    answer.append(sorted[1].getName());
-    answer.append(" ");
-    answer.append(countSecondType);
-    answer.append(",");
-    answer.append(sorted[2].getName());
-    answer.append(" ");
-    answer.append(countThirdType);
-    answer.append(",");
-    answer.append(sorted[3].getName());
-    answer.append(" ");
-    answer.append(countForthType);
-    answer.append(".");
+    answer.append(sorted[0].getName()).append(" ");
+    answer.append(countFirstType).append(",");
+    answer.append(sorted[1].getName()).append(" ");
+    answer.append(countSecondType).append(",");
+    answer.append(sorted[2].getName()).append(" ");
+    answer.append(countThirdType).append(",");
+    answer.append(sorted[3].getName()).append(" ");
+    answer.append(countForthType).append(".");
     System.out.println(answer);
   }
 }
